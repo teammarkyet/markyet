@@ -1,0 +1,31 @@
+
+@import 'tailwindcss';
+@theme{
+  --color-markyetcolor:#4D4DFF;
+}
+
+@utility navActive{
+  @apply focus:rounded-full focus:bg-markyetcolor focus:text-white focus:px-4 focus:py-2;
+}
+@utility navActiveView{
+  @apply rounded-full bg-markyetcolor text-white px-4 py-2;
+}
+@keyframes drop {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@utility animate-drop{
+  animation: drop 0.5s ease-out forwards;
+}
+@utility max-container{
+  max-width:1440px;
+  margin:0 auto;
+
+}
+@utility padding-x{
+  @apply sm:px-16 px-8 ;
+}
+html {
+  scroll-behavior: smooth;
+}
