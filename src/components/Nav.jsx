@@ -4,12 +4,12 @@ import { hamburger } from '../assets/icons';
 import { MarkLogo } from '../assets/images';
 
 const Nav = ({ darkMode, toggleDarkMode }) => {
-  const [active, setActive] = useState("#home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("#home");
 
   return (
     <header className={`flex justify-center py-4 transition-colors duration-500 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
-      <nav className={`fixed top-4 z-50 w-[90%] flex justify-between items-center px-6 py-3 rounded-full shadow-lg transition-colors duration-500 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
+      <nav className={`fixed z-50 w-[80%] flex justify-between items-center px-6 py-3 rounded-full shadow-lg transition-colors duration-500 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
         
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -39,7 +39,6 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
           >
             Contact Us
           </button>
-
           <button
             onClick={toggleDarkMode}
             className={`relative w-14 h-7 flex items-center rounded-full p-1 transition-colors duration-500 ${darkMode ? 'bg-yellow-400' : 'bg-gray-400'}`}
@@ -58,50 +57,60 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         </div>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div className={`fixed top-20 right-5 w-60 p-6 rounded-xl shadow-lg transition-all duration-300 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'} lg:hidden z-40`}>
-          <ul className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  onClick={() => {
-                    setActive(link.href);
-                    setMenuOpen(false);
-                  }}
-                  className={`block w-full ${active === link.href ? 'text-markyetcolor font-semibold' : 'hover:text-markyetcolor'}`}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+      {/* Mobile Sidebar */}
+      <div
+        className={`fixed top-20 right-0 w-64 p-6 rounded-l-xl shadow-lg transition-transform duration-300 z-40
+        ${menuOpen ? 'translate-x-0' : 'translate-x-full'}
+        ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'} lg:hidden`}
+      >
+        {/* Cross Button */}
+        <div className="flex justify-end mb-4">
+          <button onClick={() => setMenuOpen(false)} className="text-xl font-bold">✕</button>
+        </div>
 
-            <li>
-              <button
+        <ul className="flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
                 onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  setActive(link.href);
                   setMenuOpen(false);
                 }}
-                className="w-full rounded-full text-sm border-2 border-markyetcolor px-5 py-2 font-medium focus:bg-markyetcolor focus:text-white"
+                className={`block w-full ${active === link.href ? 'text-markyetcolor font-semibold' : 'hover:text-markyetcolor'}`}
               >
-                Contact Us
-              </button>
+                {link.label}
+              </a>
             </li>
+          ))}
 
-            <li>
-              <button
-                onClick={toggleDarkMode}
-                className={`relative w-full h-7 flex items-center rounded-full p-1 transition-colors duration-500 ${darkMode ? 'bg-yellow-400' : 'bg-gray-400'}`}
-              >
-                <div className={`absolute w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-500 ${darkMode ? 'translate-x-7' : 'translate-x-0 rotate-12'}`}></div>
-                <span className={`absolute left-1 text-sm ${darkMode ? 'opacity-100' : 'opacity-0'}`}>☀️</span>
-                <span className={`absolute right-1 text-sm ${darkMode ? 'opacity-0' : 'opacity-100'}`}>🌙</span>
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
+          <li>
+            <button
+              onClick={() => {
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                setMenuOpen(false);
+              }}
+              className={`w-full rounded-full text-sm border-2 px-5 py-2 font-medium transition-colors duration-300 ${darkMode ? 'border-white text-white hover:bg-white hover:text-gray-900' : 'border-markyetcolor focus:bg-markyetcolor focus:text-white'}`}
+            >
+              Contact Us
+            </button>
+          </li>
+
+          <li>
+            <button
+              onClick={toggleDarkMode}
+              className={`relative w-full h-7 flex items-center rounded-full p-1 transition-colors duration-500 ${darkMode ? 'bg-yellow-400' : 'bg-gray-400'}`}
+            >
+              <div className={`absolute w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-500 ${darkMode ? 'translate-x-7' : 'translate-x-0 rotate-12'}`}></div>
+              <span className={`absolute left-1 text-sm ${darkMode ? 'opacity-100' : 'opacity-0'}`}>☀️</span>
+              <span className={`absolute right-1 text-sm ${darkMode ? 'opacity-0' : 'opacity-100'}`}>🌙</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      {/* Overlay */}
+      {menuOpen && <div className="fixed inset-0 bg-black/60 z-30" onClick={() => setMenuOpen(false)}></div>}
     </header>
   );
 };
