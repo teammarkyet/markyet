@@ -109,3 +109,15 @@ html {
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
 .delay-600 { animation-delay: 0.6s; }
+/* === GLOBAL LAYOUT FIXES === */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* ✅ Prevent horizontal scrolling */
+}
+
+* {
+  box-sizing: border-box; /* ✅ Keeps elements inside their width */
+}

@@ -16,7 +16,14 @@ const App = () => {
   const toggleDarkMode = () => setDarkMode(prev => !prev);
 
   return (
-    <div className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} transition-colors duration-500`}>
+    <div
+      className={`
+        ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}
+        transition-colors duration-500
+        overflow-x-hidden  /* ✅ prevents horizontal scroll */
+        w-full
+      `}
+    >
       <SEO
         title="Markyet – Digital Marketing, SEO, Social Media & Branding"
         description="Markyet is a digital marketing company helping brands win the digital market with SEO, PPC, social media, web design, and content marketing."
@@ -25,22 +32,20 @@ const App = () => {
         image="https://www.markyet.in/logo.png"
       />
 
-      {/* Navbar with toggle */}
-     
+      {/* Navbar */}
+      <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       {/* Main Sections */}
-      <main className="transition-colors duration-500">
-        <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <main className="transition-colors duration-500 w-full overflow-x-hidden">
         <Hero darkMode={darkMode} />
         <Services darkMode={darkMode} />
         <About_us darkMode={darkMode} />
         <Blogs darkMode={darkMode} />
         <Contact darkMode={darkMode} />
-         <Footer darkMode={darkMode} />
       </main>
 
       {/* Footer */}
-     
+      <Footer darkMode={darkMode} />
     </div>
   );
 };
