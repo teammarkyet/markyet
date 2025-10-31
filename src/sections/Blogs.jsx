@@ -20,18 +20,18 @@ const Blogs = () => {
         image="https://www.markyet.in/logo.png"
       />
 
-      <section id="blog" className='bg-white py-20'>
+      <section id="blog" className='bg-white dark:bg-gray-900 py-20 transition-colors duration-500'>
         <div className='max-w-7xl mx-auto px-6'>
 
           {/* Header */}
           <div className='text-center mb-12' data-aos="fade-up">
-            <p className='text-markyetcolor font-semibold uppercase text-sm tracking-wide'>
+            <p className='text-markyetcolor dark:text-violet-400 font-semibold uppercase text-sm tracking-wide'>
               Our Blog
             </p>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mt-2'>
-              Insights & <span className='text-markyetcolor'>Strategies</span>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2'>
+              Insights & <span className='text-markyetcolor dark:text-violet-400'>Strategies</span>
             </h2>
-            <p className='text-gray-600 mt-4 max-w-2xl mx-auto'>
+            <p className='text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto'>
               Stay updated with the latest trends in digital marketing, SEO, social media, 
               and growth strategies from our experts.
             </p>
@@ -50,6 +50,7 @@ const Blogs = () => {
                   img={item.img}
                   title={item.title}
                   description={item.description}
+                  className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 transition-colors duration-500"
                 />
               </div>
             ))}

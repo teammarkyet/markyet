@@ -18,21 +18,21 @@ const Contact = () => {
         image="https://www.markyet.in/logo.png"
       />
 
-      <section id="contact" className='bg-gray-50 py-20'>
+      <section id="contact" className='bg-gray-50 dark:bg-gray-900 py-20 transition-colors duration-500'>
         <div className='max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-start'>
 
           {/* Info Section */}
           <div data-aos="fade-right">
-            <p className='text-markyetcolor font-semibold uppercase text-sm tracking-wide'>Get in Touch</p>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mt-2'>
-              Let's Talk About <span className='text-markyetcolor'>Your Project</span>
+            <p className='text-markyetcolor dark:text-violet-400 font-semibold uppercase text-sm tracking-wide'>Get in Touch</p>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2'>
+              Let's Talk About <span className='text-markyetcolor dark:text-violet-400'>Your Project</span>
             </h2>
-            <p className='text-gray-600 mt-4 leading-relaxed'>
+            <p className='text-gray-600 dark:text-gray-300 mt-4 leading-relaxed'>
               Have an idea or need help with your digital marketing? 
               Fill out the form and our team will get back to you within 24 hours.
             </p>
 
-            <div className='mt-8 space-y-4 text-gray-700'>
+            <div className='mt-8 space-y-4 text-gray-700 dark:text-gray-300'>
               <p>📍 Guntur, Andhra Pradesh, India</p>
               <p>📞 +91 7995673300</p>
               <p>✉️ teammarkyet@gmail.com</p>
@@ -40,38 +40,39 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className='bg-white shadow-lg rounded-2xl p-8' data-aos="fade-left">
+          <div className='bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8 transition-colors duration-500' data-aos="fade-left">
             <form className='space-y-6'>
+
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
                 <input 
                   type="text" 
                   id="name" 
                   name="name" 
                   placeholder="Your Name"
-                  className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-markyetcolor focus:border-markyetcolor transition"
+                  className="mt-1 w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:ring-2 focus:ring-markyetcolor focus:border-markyetcolor transition"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
                 <input 
                   type="email" 
                   id="email" 
                   name="email" 
                   placeholder="Your Email"
-                  className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-markyetcolor focus:border-markyetcolor transition"
+                  className="mt-1 w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:ring-2 focus:ring-markyetcolor focus:border-markyetcolor transition"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
                 <textarea 
                   id="message" 
                   name="message" 
                   rows="4" 
                   placeholder="Write your message..."
-                  className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-markyetcolor focus:border-markyetcolor transition"
+                  className="mt-1 w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:ring-2 focus:ring-markyetcolor focus:border-markyetcolor transition"
                 ></textarea>
               </div>
 
