@@ -10,7 +10,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
   return (
     <header className={`flex justify-center py-4 transition-colors duration-500 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
       <nav className={`fixed top-4 z-50 w-[90%] flex justify-between items-center px-6 py-3 rounded-full shadow-lg transition-colors duration-500 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
-
+        
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img src={MarkLogo} alt="Markyet Logo" className="w-24 h-7 object-contain" />
@@ -52,7 +52,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
 
         {/* Hamburger Menu for Mobile */}
         <div className="lg:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="relative z-50">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
             <img src={hamburger} alt="hamburger icon" width={25} height={25} />
           </button>
         </div>
@@ -68,7 +68,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                   href={link.href}
                   onClick={() => {
                     setActive(link.href);
-                    setMenuOpen(false); // close menu
+                    setMenuOpen(false);
                   }}
                   className={`block w-full ${active === link.href ? 'text-markyetcolor font-semibold' : 'hover:text-markyetcolor'}`}
                 >
@@ -76,17 +76,19 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                 </a>
               </li>
             ))}
+
             <li>
               <button
                 onClick={() => {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                   setMenuOpen(false);
                 }}
-                className={`w-full rounded-full text-sm border-2 px-5 py-2 font-medium transition-colors duration-300 ${darkMode ? 'border-white text-white hover:bg-white hover:text-gray-900' : 'border-markyetcolor focus:bg-markyetcolor focus:text-white'}`}
+                className="w-full rounded-full text-sm border-2 border-markyetcolor px-5 py-2 font-medium focus:bg-markyetcolor focus:text-white"
               >
                 Contact Us
               </button>
             </li>
+
             <li>
               <button
                 onClick={toggleDarkMode}
