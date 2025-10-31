@@ -1,13 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const KeyValues = ({title,description}) => {
+const KeyValuesCard = ({ title, description, darkMode }) => {
   return (
-    <div className='p-4 bg-white shadow rounded-xl'>
-        <h3 className='font-semibold text-lg text-gray-900'>{title}</h3>
-        <p className='text-gray-500 text-sm mt-1'>{description}</p>
-
+    <div
+      className={`p-4 rounded-xl shadow transition-colors duration-300
+        ${darkMode ? 'bg-gray-800 text-gray-200' : 'bg-white text-gray-900'}`}
+    >
+      <h3 className="font-semibold text-lg">{title}</h3>
+      <p className={`text-sm mt-1 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+        {description}
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default KeyValues
+export default KeyValuesCard;

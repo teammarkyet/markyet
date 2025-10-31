@@ -5,7 +5,7 @@ import ServiceCard from "../components/ServiceCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Services = () => {
+const Services = ({ darkMode }) => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -22,22 +22,48 @@ const Services = () => {
 
       <section
         id="services"
-        className="relative bg-white dark:bg-gray-900 py-20 overflow-hidden transition-colors duration-500"
+        className={`relative py-20 overflow-hidden transition-colors duration-500 ${
+          darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+        }`}
       >
         {/* Subtle floating orbs for background depth */}
-        <div className="absolute top-10 left-20 w-48 h-48 bg-markyetcolor/20 dark:bg-violet-700/30 rounded-full blur-3xl animate-pulseSlow"></div>
-        <div className="absolute bottom-0 right-32 w-64 h-64 bg-violet-400/20 dark:bg-markyetcolor/20 rounded-full blur-3xl animate-floatSlow"></div>
+        <div
+          className={`absolute top-10 left-20 w-48 h-48 rounded-full blur-3xl animate-pulseSlow ${
+            darkMode ? "bg-violet-700/30" : "bg-markyetcolor/20"
+          }`}
+        ></div>
+        <div
+          className={`absolute bottom-0 right-32 w-64 h-64 rounded-full blur-3xl animate-floatSlow ${
+            darkMode ? "bg-markyetcolor/20" : "bg-violet-400/20"
+          }`}
+        ></div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Section Heading */}
           <div className="text-center mb-16" data-aos="fade-up">
-            <p className="text-markyetcolor dark:text-violet-400 font-semibold uppercase text-sm tracking-wide">
+            <p
+              className={`font-semibold uppercase text-sm tracking-wide ${
+                darkMode ? "text-violet-400" : "text-markyetcolor"
+              }`}
+            >
               Our Services
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2" data-aos="fade-up" data-aos-delay="100">
+            <h2
+              className={`text-3xl md:text-4xl font-bold mt-2 ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               What We Offer
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            <p
+              className={`mt-4 max-w-2xl mx-auto ${
+                darkMode ? "text-gray-400" : "text-gray-500"
+              }`}
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               From strategy to execution, Markyet delivers end-to-end digital
               marketing solutions designed to help your brand scale and succeed.
             </p>
@@ -56,6 +82,7 @@ const Services = () => {
                   title={service.name}
                   description={service.value}
                   image={service.img}
+                  darkMode={darkMode} // Pass prop to ServiceCard
                 />
               </div>
             ))}
