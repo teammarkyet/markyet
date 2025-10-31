@@ -7,6 +7,8 @@ import Blogs from './sections/Blogs';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 import SEO from './components/SEO';
+import Why from './sections/Why';
+import BackgroundOrbs from './components/BackgroundOrbs';
 
 const App = () => {
   return (
@@ -17,9 +19,11 @@ const App = () => {
         keywords="digital marketing, SEO, social media marketing, PPC, branding, web design, Google Ads, content marketing"
         url="https://www.markyet.in"
         image="https://www.markyet.in/logo.png"
+
       />
       <Nav />
       <main>
+     
         <Hero />
         <Services />
         <About_us />

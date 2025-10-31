@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SEO from '../components/SEO';
 import BlogCard from '../components/BlogCard';
 import { blogValues } from '../constants';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Blogs = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <>
       <SEO
@@ -16,7 +22,9 @@ const Blogs = () => {
 
       <section id="blog" className='bg-white py-20'>
         <div className='max-w-7xl mx-auto px-6'>
-          <div className='text-center mb-12'>
+
+          {/* Header */}
+          <div className='text-center mb-12' data-aos="fade-up">
             <p className='text-markyetcolor font-semibold uppercase text-sm tracking-wide'>
               Our Blog
             </p>
@@ -31,18 +39,24 @@ const Blogs = () => {
 
           {/* Blog Cards */}
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-            {blogValues.map((items) => (
-              <BlogCard
-                key={items.title}
-                img={items.img}
-                title={items.title}
-                description={items.description}
-              />
+            {blogValues.map((item, index) => (
+              <div
+                key={item.title}
+                data-aos="fade-up"
+                data-aos-delay={index * 100} // staggered animation
+                className="transform transition duration-500 hover:scale-105"
+              >
+                <BlogCard
+                  img={item.img}
+                  title={item.title}
+                  description={item.description}
+                />
+              </div>
             ))}
           </div>
         </div>
 
-        {/* JSON-LD Structured Data for Articles */}
+        {/* JSON-LD Structured Data for SEO */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

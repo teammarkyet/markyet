@@ -86,3 +86,21 @@ export const blogValues=[
   },
   
 ];
+export const approachSteps = [
+  {
+    img: "https://images.unsplash.com/photo‑1542744173‑8e7e53415bb0?auto=format&fit=crop&w=800&q=80",  // e.g., “analyze data” image
+    title: "Analyze",
+    description: "We dive deep into your market, competitors, and data to find growth opportunities."
+  },
+  {
+    img: "https://images.unsplash.com/photo‑1527689368864‑3a821dbccc34?auto=format&fit=crop&w=800&q=80",  // “strategize campaign” image
+    title: "Strategize",
+    description: "Craft tailored campaigns to reach your target audience and maximise ROI."
+  },
+  {
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1115",  // “execute & optimise” image
+    title: "Execute & Optimize",
+    description: "Implement campaigns, track results, and optimise for continuous improvement."
+  },
+];
+
